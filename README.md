@@ -17,7 +17,7 @@ Sistema de Registro, Autenticação e Recuperação de senha utilizando NodeJs c
 <a href="https://editorconfig.org">EditorConfig</a>
 
 **Variaveis de Ambiente**<br>
-<strong>File:</strong> [.env]<br>
+<strong>File:<a href="https://github.com/gfrancodev/SRAR/blob/v1.0/.env"> [.env]</a><br>
 <a href="https://www.npmjs.com/package/dotenv">dotenv</a><br><br>
 
 **SMTP_HOST=** Insira o host smtp <br>
