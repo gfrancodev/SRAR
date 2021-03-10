@@ -6,8 +6,8 @@ Sistema de Registro, Autenticação e Recuperação de senha utilizando NodeJs c
 <a href="https://yarnpkg.com">YARN</a><br>
 <br>
 **yarn build** - Transpila o projeto de typescript para javascript.<br>
-**yarn start** - Inicia o projeto transpilado em servidor local.<br>
-**yarn dev** - Inicia o projeto em typescript com configurações de desenvolvimento.<br>
+**yarn start** - Inicia o projeto transpilado em servidor local. Acesse: <a href="http://localhost:3000/">http://localhost:3000/</a><br>
+**yarn dev** - Inicia o projeto em typescript com configurações de desenvolvimento em: <a href="http://localhost:3000/">http://localhost:3000/</a><br>
 **yarn test** - Inicia os testesutilizando Jest.<br>
 <br>
 **Configurações do ambiente de desenvolvimento**
@@ -38,4 +38,4 @@ Sistema de Registro, Autenticação e Recuperação de senha utilizando NodeJs c
 <a href="https://www.npmjs.com/package/supertest">SuperTest</a>
 <br><br>
 **Documentação** <br>
-<a href="https://swagger.io">Swagger</a>
+<a href="https://swagger.io">Swagger</a><br> Acesse a documentação em:<a href="http://localhost:3000/">http://localhost:3000/documentation</a>
