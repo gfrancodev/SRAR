@@ -4,12 +4,12 @@ Sistema de Registro, Autenticação e Recuperação de senha utilizando NodeJs c
 <br><br>
 **Gerênciador de pacotes**<br>
 <a href="https://yarnpkg.com">YARN</a><br>
-
-**yarn build** - Transpila o projeto de typescript para javascript.
-**yarn start** - Inicia o projeto transpilado em servidor local.
-**yarn dev** - Inicia o projeto em typescript com configurações de desenvolvimento.
-**yarn test** - Inicia os testesutilizando Jest.
-
+<br>
+**yarn build** - Transpila o projeto de typescript para javascript.<br>
+**yarn start** - Inicia o projeto transpilado em servidor local.<br>
+**yarn dev** - Inicia o projeto em typescript com configurações de desenvolvimento.<br>
+**yarn test** - Inicia os testesutilizando Jest.<br>
+<br>
 **Configurações do ambiente de desenvolvimento**
 <a href="https://eslint.org">Eslint</a>
 <a href="https://prettier.io">Prettier</a>
