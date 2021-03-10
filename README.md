@@ -3,7 +3,7 @@ Sistema de Registro, Autenticação e Recuperação de senha utilizando NodeJs c
 <img src="https://i.imgur.com/BxPQ6KI.jpg" />
 
 **Variaveis de Ambiente**<br>
-File: [.env]<br>
+<strong>File:</strong> [.env]<br>
 <a href="https://www.npmjs.com/package/dotenv">dotenv</a><br><br>
 
 SMTP_HOST= Insira o host smtp <br>
