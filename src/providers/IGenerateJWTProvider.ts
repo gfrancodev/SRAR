@@ -1,9 +1,7 @@
-export interface IParams {
-    _id: IParams
-}
+import { ObjectId } from "mongoose";
 
-export interface IGenerateJWTProviders {
-    params: IParams 
+export interface IParams {
+    _id: ObjectId
 }
 
 export interface IGenerateToken {

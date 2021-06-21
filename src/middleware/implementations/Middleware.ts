@@ -3,7 +3,18 @@ import jwt from 'jsonwebtoken';
 import { IMiddleware } from '../IMiddleware';
 
 export class Middleware implements IMiddleware{
-    public async private(request:Request, response:Response, next:NextFunction): Promise<any> {
+
+    public async local(error: any, request:Request, response:Response, next:NextFunction): Promise<Response | void> {
+      response.set({'X-Powered-By': 'Gfrancodev' })
+
+      if (error.statusCode === 400) {
+        return response.status(422).json({ error: "Unprocessable syntax" })
+      }
+
+      return next()
+    }
+
+    public async bearer(request:Request, response:Response, next:NextFunction): Promise<any> {
         const authHeader = request.headers.authorization
 
         if (!authHeader)

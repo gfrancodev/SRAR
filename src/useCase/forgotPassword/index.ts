@@ -1,9 +1,9 @@
-import { MongooForgotPasswordRespository } from "../../repositories/implementations/MongooForgotPaswordRepository";
+import { ForgotPasswordRespository } from "../../repositories/implementations/ForgotPaswordRepository";
 import { MailProvider } from "../../providers/implementations/MailProvider";
 import { ForgotPassworController } from "./ForgotPasswordController";
 import { ForgotPasswordUseCase } from "./ForgotPasswordUseCase";
 
-const mongooForgotPasswordRespository = new MongooForgotPasswordRespository();
+const mongooForgotPasswordRespository = new ForgotPasswordRespository();
 const mailProvider = new MailProvider();
 
 const forgotPasswordUseCase = new ForgotPasswordUseCase(

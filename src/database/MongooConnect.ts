@@ -7,6 +7,8 @@ class MongooConnect {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useFindAndModify: false
+        }).catch(() => {
+            console.table([{ database: 'mongodb', connect: false }])
         })
     }
 }

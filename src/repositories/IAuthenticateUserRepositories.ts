@@ -1,6 +1,11 @@
-export interface AuthenticateUserCaseRepository {
+import { ObjectId } from "mongoose";
+
+export interface IUserResponse {
+  _id: ObjectId
+  password: string
+}
+
+export interface IAuthenticateUserCaseRepository {
     findEmail(email): Promise<Object>
-    findUsername(username): Promise<Object>
-    comparePassword(email): Promise<string>
-    findUser(data): Promise<Object>
+    comparePassword(email): Promise<IUserResponse>
 }

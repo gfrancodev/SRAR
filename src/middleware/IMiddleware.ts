@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response} from 'express';
 
 export interface IMiddleware {
-  private(request:Request, response:Response, next:NextFunction): Promise<any>
+  local(error: ErrorEvent,request:Request, response:Response, next:NextFunction): Promise<Response | void>
+  bearer(request:Request, response:Response, next:NextFunction): Promise<void>
 }

@@ -1,13 +1,11 @@
 import { CreateUserController } from "./CreateUserController";
-
 import { CreateUserUseCase } from "./CreateUserUseCase";
+import { UsersRepository } from '../../repositories/implementations/CreateUserRepository'
 
-import { MongooUsersRepository } from '../../repositories/implementations/MongooUsersRepository'
-
-const mongooUsersRespository = new MongooUsersRepository()
+const usersRespository = new UsersRepository()
 
 const createUserUseCase = new CreateUserUseCase(
-    mongooUsersRespository
+    usersRespository
 )
 
 const createUserController = new CreateUserController(

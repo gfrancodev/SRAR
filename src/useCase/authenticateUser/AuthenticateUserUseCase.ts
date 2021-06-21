@@ -1,39 +1,29 @@
-import { AuthenticateUserCaseRepository } from "@repositories/IAuthenticateUserRepositories";
+import { IAuthenticateUserCaseRepository } from "@repositories/IAuthenticateUserRepositories";
 
 import { AuthenticadeUserDTO } from '@usecase/authenticateUser/AuthenticateUserDTO';
 
 import { IGenerateToken } from "../../providers/IGenerateJWTProvider";
 
 import bcrypt from 'bcrypt';
+import { ForbiddenError } from "src/errors";
 
 export class AuthenticateUserUseCase {
     constructor(
-        private AuthenticateUserRepository: AuthenticateUserCaseRepository,
+        private AuthenticateUserRepository: IAuthenticateUserCaseRepository,
         private IGenerateToken: IGenerateToken
     ){}
 
-    public async execute(data: AuthenticadeUserDTO): Promise<any>{
-        if (data.email) {
-            const emailAlreadyExist = this.AuthenticateUserRepository.findEmail(data.email)
+    public async execute(data: AuthenticadeUserDTO): Promise<Object | Error>{
+      
+        await this.AuthenticateUserRepository.findEmail(data.email)
 
-            if (!emailAlreadyExist)
-                throw new Error('Unregistered email.')
-        }
+        const { _id, password } = await this.AuthenticateUserRepository.comparePassword(data.email)
 
-        if (data.username) {
-            const usernameAlreadyExist = this.AuthenticateUserRepository.findUsername(data.username)
+       if (!await bcrypt.compare(data.password, password))
+            throw new ForbiddenError('Invalid password');
 
-            if (!usernameAlreadyExist)
-                throw new Error('Unregistered username.')
-        }
+        const token = await this.IGenerateToken.generateToken({ _id })
 
-        const user:any = await this.AuthenticateUserRepository.findUsername(data.username) || await this.AuthenticateUserRepository.findEmail(data.email)
-
-       if (!await bcrypt.compare(data.password, await this.AuthenticateUserRepository.comparePassword(user.email)))
-            throw new Error('Invalid password');
-
-        const token = await this.IGenerateToken.generateToken({ _id: user._id })
-
-        return { user, token }
+        return { token }
     }
 }

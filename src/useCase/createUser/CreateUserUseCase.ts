@@ -1,23 +1,17 @@
-import { IUserCaseRepostiores } from "@repositories/IUserCaseRepositories";
+import { ICreateUserRepostiores } from "@repositories/IUserCaseRepositories";
+import { ForbiddenError } from "src/errors";
 import { CreateUseRequestDTO } from "./CreateUserDTO";
 
 export class CreateUserUseCase {
     constructor(
-        private IUserCaseRepostiories: IUserCaseRepostiores
+        private CreateUserRepostiory: ICreateUserRepostiores
     ){}
 
     public async execute(data: CreateUseRequestDTO) {
-        const emailAlreadyExist = await this.IUserCaseRepostiories.findEmail(data.email);
 
-        if (emailAlreadyExist)
-            throw new Error('Email already exists.');
+        if (await this.CreateUserRepostiory.findEmail(data.email))
+            throw new ForbiddenError('email is incorrect')
 
-
-        const usernameAlreadyExist = await this.IUserCaseRepostiories.findUsername(data.username);
-
-        if (usernameAlreadyExist)
-            throw new Error('Username already exists.');
-
-        await this.IUserCaseRepostiories.save(data);
+        return await this.CreateUserRepostiory.save(data)
     }
 }

@@ -10,9 +10,8 @@ export class ForgotPasswordUseCase {
     ){}
 
     public async execute(data: ForgotPassworRequestDTO): Promise<Object>{
-        const emailAlreadyExist: any = await this.IForgotPasswordRepositories.findEmail(data.email)
 
-        if (!emailAlreadyExist)
+        if (await this.IForgotPasswordRepositories.findEmail(data.email))
             throw new Error('Unregistered email.');
 
         const token: string = crypto.randomBytes(20).toString('hex');
@@ -20,7 +19,7 @@ export class ForgotPasswordUseCase {
         const now: Date = new Date();
         now.setHours(now.getHours() + 1);
 
-        await this.IForgotPasswordRepositories.findAndUpdate(emailAlreadyExist._id, token, now)
+        await this.IForgotPasswordRepositories.findAndUpdate(data.email, token, now)
 
         await this.IMailProvider.sendMail({
         to: {
@@ -28,13 +27,12 @@ export class ForgotPasswordUseCase {
                 address: "teste@teste.com.br"
             },
             from: {
-                name: emailAlreadyExist.name,
+                name: data.email,
                 address: data.email
             },
             subject: `Esqueceu sua senha?`,
             body: `Seu token de recueração é ${token}`
         })
-
 
         return { success: 'Send token in your e-mail' }
     }

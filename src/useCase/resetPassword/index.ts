@@ -1,8 +1,8 @@
-import { MongooResetPasswordRepository } from "../../repositories/implementations/MongooResetPasswordRepository";
+import { ResetPasswordRepository } from "../../repositories/implementations/ResetPasswordRepository";
 import { ResetPasswordController } from "./ResetPasswordController";
 import { ResetPassworUseCase } from "./ResetPasswordUseCase";
 
-const mongooResetPasswordRepository = new MongooResetPasswordRepository();
+const mongooResetPasswordRepository = new ResetPasswordRepository();
 
 const resetPasswordUseCase = new ResetPassworUseCase(
     mongooResetPasswordRepository
