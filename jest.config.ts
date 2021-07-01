@@ -1,18 +1,10 @@
-export default {
-  bail: true,
-  verbose: true,
+module.exports = {
   clearMocks: true,
-  coverageDirectory: "coverage",
-  coverageProvider: "v8",
   collectCoverage: true,
-  collectCoverageFrom: ['<rootDir>/src/useCase/**/*.spec.ts'],
-  coverageReporters: [
-    "text-summary",
-    "lcov"
-  ],
+  coverageDirectory: 'coverage',
   preset: 'ts-jest',
-  testEnvironment: "node",
+  testEnvironment: 'node',
   testMatch: [
-    "**/src/useCase/**/*.spec.ts"
+    '**/src/useCase/**/*.spec.ts'
   ]
-};
+}

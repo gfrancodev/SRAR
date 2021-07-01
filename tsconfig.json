@@ -18,14 +18,7 @@
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": "." ,
-    "paths": {
-      "@entities/*":["./src/entities/*"],
-      "@database/*":["./src/database/*"],
-      "@repositories/*":["./src/repositories/*"],
-      "@usecase/*":["./src/useCase/*"],
-      "@providers/*":["./src/providers/*"]
-    },
+    "baseUrl": "."
   },
   "include": [
     "src/**/*"

@@ -1,6 +1,6 @@
-import { NextFunction, Request, Response} from 'express';
+import { NextFunction, Request, Response } from 'express'
 
 export interface IMiddleware {
-  local(error: ErrorEvent,request:Request, response:Response, next:NextFunction): Promise<Response | void>
-  bearer(request:Request, response:Response, next:NextFunction): Promise<void>
+  notFound: (request:Request, response: Response, next: NextFunction) => Response | void
+  bearer: (request:Request, response:Response, next:NextFunction) => void
 }

@@ -1,4 +1,4 @@
-import { ObjectId } from "mongoose";
+import { ObjectId } from 'mongoose'
 
 export interface IUserResponse {
   _id: ObjectId
@@ -6,6 +6,6 @@ export interface IUserResponse {
 }
 
 export interface IAuthenticateUserCaseRepository {
-    findEmail(email): Promise<Object>
-    comparePassword(email): Promise<IUserResponse>
+    findEmail: (email) => Promise<Object>
+    comparePassword: (email) => Promise<IUserResponse>
 }
